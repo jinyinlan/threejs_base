@@ -1,6 +1,8 @@
 uniform float u_time;
-varying vec3 pos;
+varying vec2 v_uv;
+
 void main(){
-gl_Position = projectionMatrix * modelViewMatrix * vec4( position.x,sin(position.z+u_time)+position.y,position.z, 1.0 );
-pos = gl_Position.xyz;
+    v_uv = uv; //uv is a built-in attribute
+    gl_Position = projectionMatrix * modelViewMatrix * vec4( position.x,position.y,position.z, 1.0 );
+
 }
